@@ -1,0 +1,22 @@
+programa
+declare a,b,c,media.
+
+escreva("Bem-vindo ao programa de teste!").
+
+escreva("Digite A").
+leia(a).
+
+escreva("Digite B").
+leia(b).
+
+c := a + b.
+media := (a + b) / 2.
+
+se (a < b) entao {
+    escreva("A é menor que B").
+} senao {
+    escreva("A não é menor que B").
+}
+
+fimprog.
+

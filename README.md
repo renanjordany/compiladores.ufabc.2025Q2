@@ -17,9 +17,6 @@ Este projeto permite criar programas na linguagem Zeta e executá-los em Python,
 ZetaCompiler/
 ├─ generated/
 │   ├─ __init__.py
-│   ├─ ZetaLexer.py
-│   ├─ ZetaParser.py
-│   └─ ZetaVisitor.py
 ├─ MyVisitor.py
 ├─ run_zeta.py
 ├─ programa.zeta

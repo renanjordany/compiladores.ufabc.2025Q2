@@ -1,55 +1,35 @@
 grammar Zeta;
 
-// Parser rules
-prog: 'programa' decl bloco 'fimprog' '.' ;
+prog : 'programa' declara bloco 'fimprog' ;
 
-decl: 'declare' ID (',' ID)* '.' ;
+declara : 'declare' ID (',' ID)* '.' ;
 
-bloco: cmd+ ;
+bloco : cmd+ ;
 
-cmd
-    : cmdLeitura
+cmd : cmdLeitura
     | cmdEscrita
     | cmdExpr
     | cmdIf
     | cmdEnquanto
-    | cmdFacaEnquanto
     ;
 
-cmdLeitura: 'leia' '(' ID ')' '.' ;
-cmdEscrita: 'escreva' '(' (TEXTO | expr) ')' '.' ;
-cmdExpr: ID ':=' exprRel '.' ;
+cmdLeitura : 'leia' '(' ID ')' '.' ;
+cmdEscrita : 'escreva' '(' (ID | TEXTO) ')' '.' ;
+cmdExpr : ID ':=' expr '.' ;
+cmdIf : 'se' '(' cond ')' 'entao' '{' bloco '}' ('senao' '{' bloco '}')? ;
+cmdEnquanto : 'enquanto' '(' cond ')' '{' bloco '}' ;
 
-cmdIf: 'se' '(' exprRel ')' 'entao' '{' bloco '}' ('senao' '{' bloco '}')? ;
-cmdEnquanto: 'enquanto' '(' exprRel ')' '{' bloco '}' ;
-cmdFacaEnquanto: 'faça' '{' bloco '}' 'enquanto' '(' exprRel ')' '.' ;
+cond : expr op_rel expr ;
 
-// Expressions
-exprRel: expr (( '<' | '>' | '<=' | '>=' | '==' | '!=' ) expr)? ;
-expr: term (( '+' | '-' ) term)* ;
-term: factor (( '*' | '/' ) factor)* ;
-factor: NUM
-      | ID
-      | '(' expr ')'
-      ;
+op_rel : '<' | '>' | '<=' | '>=' | '==' | '!=' ;
 
-// Lexer rules
-NUM: [0-9]+ ('.' [0-9]+)? ;
-ID: [a-zA-Z][a-zA-Z0-9]* ;
-TEXTO: '"' (~["\r\n])* '"' ;
+expr : termo (( '+' | '-' ) termo)* ;
+termo : fator (( '*' | '/' ) fator)* ;
+fator : NUM | ID | '(' expr ')' ;
 
-PLUS: '+' ;
-MINUS: '-' ;
-MULT: '*' ;
-DIV: '/' ;
+ID : [a-zA-Z][a-zA-Z0-9]* ;
+NUM : [0-9]+ ('.' [0-9]+)? ;
+TEXTO : '"' (~["\r\n])* '"' ;
 
-LT: '<' ;
-GT: '>' ;
-LE: '<=' ;
-GE: '>=' ;
-EQ: '==' ;
-NEQ: '!=' ;
-
-ASSIGN: ':=' ;
-WS: [ \t\r\n]+ -> skip ;
+WS : [ \t\r\n]+ -> skip ;
 

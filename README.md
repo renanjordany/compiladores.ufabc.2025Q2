@@ -40,7 +40,7 @@ Editar
 
 ---
 
-## Passo 1: Gerar os arquivos Python do ANTLR
+## Gerar os arquivos Python do ANTLR
 
 1. Baixe o ANTLR:
 
@@ -57,7 +57,7 @@ touch generated/__init__.py
 
 ---
 
-## Passo 2: Estrutura de pastas
+Estrutura de pastas
 
 O projeto deve ficar assim:
 

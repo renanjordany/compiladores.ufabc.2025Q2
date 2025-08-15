@@ -28,6 +28,13 @@ ZetaCompiler/
 
 ---
 
+Pré-requisitos
+
+Python 3.8 ou superior
+
+Java (para gerar os arquivos do ANTLR)
+
+ANTLR 4.13.1 (antlr-4.13.1-complete.jar)
 ## Pré-requisitos
 
 - Python 3.8 ou superior  

@@ -14,21 +14,16 @@ Este projeto permite criar programas na linguagem Zeta e executá-los em Python,
 ## Estrutura do projeto
 
 ZetaCompiler/
-│
-├─ generated/ # arquivos gerados pelo ANTLR
-│ ├─ init.py
-│ ├─ ZetaLexer.py
-│ ├─ ZetaParser.py
-│ └─ ZetaVisitor.py
-├─ MyVisitor.py # visitor Python funcional
-├─ run_zeta.py # script para rodar o programa
-├─ programa.zeta # exemplo de programa Zeta
-├─ Zeta.g4 # gramática ANTLR
-└─ README.md # este tutorial
-
-yaml
-Copiar
-Editar
+├─ generated/
+│   ├─ __init__.py
+│   ├─ ZetaLexer.py
+│   ├─ ZetaParser.py
+│   └─ ZetaVisitor.py
+├─ MyVisitor.py
+├─ run_zeta.py
+├─ programa.zeta
+├─ Zeta.g4
+└─ README.md
 
 ---
 

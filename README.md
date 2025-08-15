@@ -13,6 +13,7 @@ Este projeto permite criar programas na linguagem Zeta e executá-los em Python,
 
 ## Estrutura do projeto
 
+```text
 ZetaCompiler/
 ├─ generated/
 │   ├─ __init__.py
